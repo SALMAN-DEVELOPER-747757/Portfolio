@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="style2.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 style="color: aliceblue;" class="text-center" > Welcome to calculate me!</h1>
 
-    <div class="container flex flex col item center mx-auto m-w-20">
-      
-        <div class="row">
-              <input class="input" type="text">
-        </div>
+  <h1 class="title">Welcome to Calculate Me!</h1>
 
-        <div class="row">
-            <button class="button">AC</button>
-            <button class="button">00</button>
-            <button class="button">%</button>
-            <button class="button">M+</button>
-        </div>
-
-        <div class="row">
-            <button class="button">7</button>
-            <button class="button">8</button>
-            <button class="button">9</button>
-            <button class="button">*</button>
-        </div>
-
-         <div class="row">
-            <button class="button">4</button>
-            <button class="button">5</button>
-            <button class="button">6</button>
-            <button class="button">/</button>
-        </div>
-
-         <div class="row">
-            <button class="button">1</button>
-            <button class="button">2</button>
-            <button class="button">3</button>
-            <button class="button">+</button>
-        </div>
-
-         <div class="row">
-            <button class="button">0</button>
-            <button class="button">.</button>
-            <button class="button">=</button>
-            <button class="button">-</button>
-        </div>
+  <div class="calculator-container">
+    <div class="display-row">
+      <input class="input" type="text" readonly placeholder="0">
     </div>
+
+    <div class="grid-row">
+      <button class="button btn-action">AC</button>
+      <button class="button btn-action">00</button>
+      <button class="button btn-operator">%</button>
+      <button class="button btn-operator">M+</button>
+    </div>
+
+    <div class="grid-row">
+      <button class="button">7</button>
+      <button class="button">8</button>
+      <button class="button">9</button>
+      <button class="button btn-operator">*</button>
+    </div>
+
+    <div class="grid-row">
+      <button class="button">4</button>
+      <button class="button">5</button>
+      <button class="button">6</button>
+      <button class="button btn-operator">/</button>
+    </div>
+
+    <div class="grid-row">
+      <button class="button">1</button>
+      <button class="button">2</button>
+      <button class="button">3</button>
+      <button class="button btn-operator">+</button>
+    </div>
+
+    <div class="grid-row">
+      <button class="button">0</button>
+      <button class="button">.</button>
+      <button class="button btn-equal">=</button>
+      <button class="button btn-operator">-</button>
+    </div>
+  </div>
+
+  <script src="butoon.js"></script>
 </body>
-<script src="butoon.js"></script>
 </html>
