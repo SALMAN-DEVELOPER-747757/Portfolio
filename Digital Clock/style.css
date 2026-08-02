@@ -1,83 +1,151 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    font-family:'poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-.hero{
+
+.hero {
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(50deg,#f71083,#04b404);
-    color:rgba(13, 13, 13, 0.33);
+    background: linear-gradient(50deg, #f71083, #04b404);
+    color: rgba(255, 255, 255, 0.8);
     position: relative;
     text-align: center;
-padding-top: 50px;
-font-size: 140px;
+    padding-top: 40px;
+    overflow: hidden; /* Prevents decorative background elements from causing horizontal scroll */
 }
-.container{
-    /* background:yellow; */
-    width: 800px;
+
+.hero h1 {
+    font-size: 3rem; /* Scalable title font */
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
     height: 180px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
-.clock{
+
+.clock {
     width: 100%;
     height: 100%;
     background: rgba(160, 4, 251, 0.11);
     border-radius: 10px;
-    border: 2PX solid black;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(40px);
 }
-.container::before{
+
+.container::before {
     content: '';
     width: 180px;
     height: 180px;
     background: #f41b75;    
     border-radius: 5px;
-    position:absolute;
-    left: -50px;
-     top: -50px;
-    z-index:-1;
+    position: absolute;
+    left: -30px;
+    top: -40px;
+    z-index: -1;
     border: 2px solid pink;
 }
-.container::after{
-      content: '';
+
+.container::after {
+    content: '';
     width: 180px;
     height: 180px;
     background: #419aff;    
     border-radius: 50%;
-    position:absolute;
-    right: -30px;
-    bottom: -50px;
-    z-index:-1;
-     border: 2px solid pink;
+    position: absolute;
+    right: -20px;
+    bottom: -40px;
+    z-index: -1;
+    border: 2px solid pink;
 }
-.clock span{
+
+.clock span {
     font-size: 80px;
     width: 100px;
     display: inline-block;
     text-align: center;
     position: relative;
+    color: #fff;
 }
-.clock span::after{
-font-size: 16px;
-position: absolute;
-bottom: -5px;
-left: 50px;
-transform: translateX(-50%);
+
+.clock span::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
-#hr::after{
-    content: 'Hours';
+
+#hr::after { content: 'Hours'; }
+#min::after { content: 'Minutes'; }
+#sec::after { content: 'Seconds'; }
+
+/* =======================================
+   RESPONSIVE MEDIA QUERIES FOR PHONES
+   ======================================= */
+
+/* Tablets & Small Laptops */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .container {
+        height: 150px;
+    }
+
+    .clock span {
+        font-size: 55px;
+        width: 70px;
+    }
+
+    .container::before, 
+    .container::after {
+        width: 120px;
+        height: 120px;
+    }
 }
-#min::after{
-    content: 'Minutes';
-}
-#sec::after{
-    content: 'Seconds';
+
+/* Phones (Portrait) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        height: 120px;
+    }
+
+    .clock span {
+        font-size: 36px;
+        width: 50px;
+    }
+
+    .clock span::after {
+        font-size: 11px;
+        bottom: -15px;
+    }
+
+    .container::before {
+        width: 90px;
+        height: 90px;
+        left: -15px;
+        top: -25px;
+    }
+
+    .container::after {
+        width: 90px;
+        height: 90px;
+        right: -10px;
+        bottom: -25px;
+    }
 }
