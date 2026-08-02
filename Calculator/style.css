@@ -1,37 +1,151 @@
-html,body{
-    height: 100%;
-    width: 100%;
-    background-color: black;
+/* Reset & Universal Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.button{
-    padding: 20px;
-    margin: 0px 5px;
-    border: 2px solid black;   
+html, body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+/* Page Title */
+.title {
+  color: #f8fafc;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Main Calculator Container */
+.calculator-container {
+  background-color: #1e293b;
+  width: 100%;
+  max-width: 340px; /* Perfect desktop & tablet width limit */
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Input / Display Field */
+.display-row {
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  height: 60px;
+  background-color: #0f172a;
+  color: #38bdf8;
+  border: 2px solid #334155;
+  border-radius: 12px;
+  padding: 10px 15px;
+  font-size: 1.8rem;
+  text-align: right;
+  outline: none;
+  font-weight: 600;
+}
+
+/* Button Grid Rows */
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Standard Button Base */
+.button {
+  aspect-ratio: 1; /* Keeps buttons perfectly square */
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: #334155;
+  color: #ffffff;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  touch-action: manipulation;
+}
+
+/* Interactive States */
+.button:hover {
+  background-color: #475569;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
+
+/* Specific Button Color Variants */
+.btn-operator {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-operator:hover {
+  background-color: #0369a1;
+}
+
+.btn-action {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-action:hover {
+  background-color: #dc2626;
+}
+
+.btn-equal {
+  background-color: #22c55e;
+  color: #ffffff;
+}
+
+.btn-equal:hover {
+  background-color: #16a34a;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE BREAKPOINTS
+   ========================================== */
+
+/* Small Phones (screen width 480px and below) */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .calculator-container {
+    width: 95vw; /* Fills most of small phone screens */
+    padding: 15px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+
+  .input {
+    height: 55px;
+    font-size: 1.6rem;
+  }
+
+  .button {
+    font-size: 1.2rem;
     border-radius: 10px;
-    cursor: pointer; 
-    width: 66px;
-    background-color: chartreuse;
+  }
 
-}
-button:hover{
-    background-color: red;
-
-}
-.button-equal{
-    padding: 10px;
-    width: 150px;
-}
-.row{
-    margin: 8px 0;
-} 
-.row input{
-    color: blue;
-    width: 225px;
-    margin-left:8px;
-    padding:10px 38px;
-    border: 2px solid black;
-    border-radius: 10px;
-    align-items: center;
-    font-size: 20px;
+  .grid-row {
+    gap: 8px;
+  }
 }
