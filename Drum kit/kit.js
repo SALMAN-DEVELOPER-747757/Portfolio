@@ -1,11 +1,28 @@
-window.addEventListener('keydown',function(e){
-    const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`)
-    const key=document.querySelector(`.key[data-key="${e.keyCode}"]`)
+function playSound(keyCode) {
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${keyCode}"]`);
 
-    key.classList.add('playing')
-    if(!audio) return;
-    audio.currentTime=0;
-    audio.play()
+    if (!audio) return;
 
-    this.setTimeout(function(){key.classList.remove('playing');},100)
-})
+    key.classList.add('playing');
+    audio.currentTime = 0; // Rewind to start
+    audio.play();
+
+    setTimeout(() => {
+        key.classList.remove('playing');
+    }, 100);
+}
+
+// 1. Keyboard event listener (Desktop)
+window.addEventListener('keydown', function (e) {
+    playSound(e.keyCode);
+});
+
+// 2. Click & Touch event listeners (Mobile & Mouse clicks)
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => {
+    key.addEventListener('click', function () {
+        const keyCode = this.getAttribute('data-key');
+        playSound(keyCode);
+    });
+});
