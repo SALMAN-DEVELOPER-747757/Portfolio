@@ -1,26 +1,35 @@
-const passwordBox=document.getElementById("password")
-const lenght=12;
-const upperCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-const lowerCase="abcdefghijklmnopqrstuvwxyz"
-const number="0123456789"
-const symbol="~!@#$%^&*()_+-}|?<>"
-const allChars=upperCase+lowerCase+number+symbol;
- 
+const passwordBox = document.getElementById("password");
+const length = 12; // Fixed spelling typo
 
-function createPassword(){
-let password="";
-password+=upperCase[Math.floor(Math.random()*upperCase.length)];
-password+=lowerCase[Math.floor(Math.random()*lowerCase.length)];
-password+=number[Math.floor(Math.random()*number.length)];
-password+=symbol[Math.floor(Math.random()*symbol.length)];
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const number = "0123456789";
+const symbol = "~!@#$%^&*()_+-}|?<>";
+const allChars = upperCase + lowerCase + number + symbol;
 
-while(lenght>password.length){
-    password+=allChars[Math.floor(Math.random()*allChars.length)];
+function createPassword() {
+    let password = "";
+    password += upperCase[Math.floor(Math.random() * upperCase.length)];
+    password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+    password += number[Math.floor(Math.random() * number.length)];
+    password += symbol[Math.floor(Math.random() * symbol.length)];
+
+    while (length > password.length) {
+        password += allChars[Math.floor(Math.random() * allChars.length)];
+    }
+    passwordBox.value = password;
 }
-passwordBox.value=password
-}
 
-function copyPassword(){
-    passwordBox.select();
-    document.execCommand("copy")
+function copyPassword() {
+    if (!passwordBox.value) return;
+
+    // Modern Clipboard API with fallback
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(passwordBox.value);
+    } else {
+        passwordBox.select();
+        document.execCommand("copy");
+    }
+
+    alert("Password copied to clipboard!");
 }
