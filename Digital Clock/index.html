@@ -12,29 +12,25 @@
         <div class="container">
             <div class="clock">
               <span id="hr">00</span>
-              <span >:</span>
+              <span>:</span>
               <span id="min">00</span>
               <span>:</span>
               <span id="sec">00</span>
             </div>
         </div>
     </div>
+
+    <script>
+        let hr = document.getElementById("hr");
+        let min = document.getElementById("min"); // Fixed variable name from 'mim'
+        let sec = document.getElementById("sec");
+
+        setInterval(() => {
+            let CurrentTime = new Date();
+            hr.innerHTML = (CurrentTime.getHours() < 10 ? "0" : "") + CurrentTime.getHours();
+            min.innerHTML = (CurrentTime.getMinutes() < 10 ? "0" : "") + CurrentTime.getMinutes();
+            sec.innerHTML = (CurrentTime.getSeconds() < 10 ? "0" : "") + CurrentTime.getSeconds();
+        }, 1000);
+    </script>
 </body>
-<script>
-    let hr=document.getElementById("hr")
-    let mim=document.getElementById("min")
-    let sec=document.getElementById("sec")
-
-    setInterval(()=>{
-    let CurrentTime=new Date();
-    hr.innerHTML=(CurrentTime.getHours()<10?"0":"")+CurrentTime.
-    getHours();
-    min.innerHTML=(CurrentTime.getMinutes()<10?"0":"")+CurrentTime.
-    getMinutes();
-    sec.innerHTML=(CurrentTime.getSeconds()<10?"0":"")+CurrentTime.
-    getSeconds();
-
-    },1000)
-    
-</script>
 </html>
