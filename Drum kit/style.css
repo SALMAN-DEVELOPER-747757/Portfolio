@@ -1,71 +1,106 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
+
+body {
     background-image: url(drum_kit.png);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-   
+    min-height: 100vh;
 }
-.container{
+
+.container {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
-
+    flex-wrap: wrap; /* Allows keys to wrap neatly into rows on smaller screens */
+    min-height: 100vh;
+    padding: 20px;
+    gap: 15px; /* Clean spacing between keys */
 }
-.key{
-font-size: 2.5rem;
-color: white;
-border: 5px solid black;
-width: 6rem;
-border-radius: 30px;
-text-align: center;
-background:rgba(56, 2, 127, 0.5);
-box-shadow: 0 1 1rem black;
-margin: 1rem;
-padding: 1rem 0.5rem;
 
-}
-.key::after{
-     /* content: 'abbas'; */
-     font-size: 20px;
-     position: absolute;
-     top: 52%;
-    transform: translateX(-60%);
-    color: #ed04ed;
+.key {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: white;
+    border: 4px solid black;
+    width: 5.5rem;
+    height: 6.5rem;
+    border-radius: 20px;
+    background: rgba(56, 2, 127, 0.65);
+    box-shadow: 0 0 1rem black;
+    cursor: pointer;
+    transition: all 0.07s ease;
+    user-select: none; /* Prevents text selection highlight on quick taps */
     
+    /* Center text and pseudo-element neatly */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
-#a::after{
-    content: 'Clapa';
+
+/* Sound labels under each key letter */
+.key::after {
+    font-size: 14px;
+    color: #ed04ed;
+    margin-top: 4px;
+    font-weight: normal;
 }
-#b::after{
-    content: 'dassa';
-}
-#c::after{
-    content: 'berlin';
-}
-#d::after{
-    content: 'sadno';
-}
-#e::after{
-    content: 'Foflo';
-}
-#f::after{
-    content: 'Ggifa';
-}
-#g::after{
-    content: 'Monhd';
-}
-#h::after{
-    content: 'Jerry';
-}
-#i::after{
-    content: 'tom';
-}
-.playing{
+
+#a::after { content: 'Clapa'; }
+#b::after { content: 'dassa'; }
+#c::after { content: 'berlin'; }
+#d::after { content: 'sadno'; }
+#e::after { content: 'Foflo'; }
+#f::after { content: 'Ggifa'; }
+#g::after { content: 'Monhd'; }
+#h::after { content: 'Jerry'; }
+#i::after { content: 'tom'; }
+
+.playing {
     transform: scale(1.1);
     border-color: #11eb11;
-    box-shadow:0 0 10px #11eb11;
+    box-shadow: 0 0 15px #11eb11;
+}
+
+/* =======================================
+   RESPONSIVE MEDIA QUERIES FOR PHONES
+   ======================================= */
+
+/* Small Screens & Mobile Phones */
+@media (max-width: 600px) {
+    .container {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .key {
+        width: 4.2rem;
+        height: 5.2rem;
+        font-size: 1.6rem;
+        border-width: 3px;
+        border-radius: 15px;
+    }
+
+    .key::after {
+        font-size: 11px;
+    }
+}
+
+/* Extra Small Phones */
+@media (max-width: 380px) {
+    .key {
+        width: 3.5rem;
+        height: 4.5rem;
+        font-size: 1.3rem;
+    }
+
+    .key::after {
+        font-size: 9px;
+    }
 }
