@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="writing">
+        <h1>Quran Gallery</h1>
+    </div>
+    <div class="full-img" id="fullImgBox">
+        <img src="images/img1.jpg" id="fullImg">
+        <span onclick="closeFullImg()">X</span>
+        <span></span>
+    </div>
+    
+</label>
+    <div class="img-gallery">
+        
+        <img src="fateha.png" onclick="openFullImg(this.src)">
+        <img src="alam nashrah.png" onclick="openFullImg(this.src)">
+        <img src="allah.png" onclick="openFullImg(this.src)">
+        <img src="waqiya.png" onclick="openFullImg(this.src)">
+        <img src="as shamas.png" onclick="openFullImg(this.src)">
+        <img src="as shamas 2.png" onclick="openFullImg(this.src)">
+        <img src="sky.png" onclick="openFullImg(this.src)">
+        <img src="mulk.png" onclick="openFullImg(this.src)">
+    </div>
+</body>
+
+<script>
+
+    let fullImgBox=document.getElementById("fullImgBox")
+    let fullImg=document.getElementById("fullImg")
+
+    function openFullImg(pic){
+        fullImgBox.style.display="flex"
+        fullImg.src =pic
+    }
+    
+    function closeFullImg() {
+        fullImgBox.style.display="none"
+    }
+
+    let color=false
+
+    function changeColor(){
+        if (color=== false) {
+            document.body.style.background="rgba(0,0,0,0.9)"
+            document.body.style.color="#fff"
+            color=true;
+        }
+        else if(color=== true){
+            document.body.style.background="#c4baba"   
+            color=false
+        }
+        
+    }
+    
+
+</script>
+</html>

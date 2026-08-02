@@ -1,0 +1,146 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#6a11cb,#2575fc,#00c9ff,#6a11cb);
+    background-size:400% 400%;
+    animation:gradient 12s ease infinite;
+    overflow:hidden;
+}
+
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    width:420px;
+    max-width:90%;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    text-align:center;
+    color:white;
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+h1{
+    font-size:32px;
+    margin-bottom:25px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+    background:rgba(255,255,255,.9);
+    color:#333;
+    transition:.3s;
+}
+
+input:focus{
+    transform:scale(1.02);
+    box-shadow:0 0 15px rgba(255,255,255,.6);
+}
+
+button{
+    width:100%;
+    margin-top:18px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#00dbde,#fc00ff);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(0,0,0,.35);
+}
+
+button:active{
+    transform:scale(.98);
+}
+
+#qrcode{
+    margin:30px auto;
+    width:240px;
+    min-height:240px;
+    background:white;
+    padding:15px;
+    border-radius:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.4s;
+}
+
+#qrcode img,
+#qrcode canvas{
+    width:100%!important;
+    height:100%!important;
+    border-radius:10px;
+}
+
+#download{
+    background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+#download:hover{
+    background:linear-gradient(135deg,#0f9b8e,#00c853);
+}
+
+input::placeholder{
+    color:#666;
+}
+
+@media(max-width:500px){
+
+.container{
+    padding:25px;
+}
+
+h1{
+    font-size:26px;
+}
+
+#qrcode{
+    width:200px;
+    min-height:200px;
+}
+
+}
