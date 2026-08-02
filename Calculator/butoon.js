@@ -1,22 +1,26 @@
-let string ="";
-let buttons=document.querySelectorAll('.button');
-Array.from(buttons).forEach((button)=>{
-    button.addEventListener('click',(e)=>{
-        if (e.target.innerHTML=='=') {
-            string=eval(string)
-            document.querySelector('input').value=string;
-        }
-        else if (e.target.innerHTML=='AC') {
-            string=""
-            document.querySelector('input').value=string;
-        }
+const input = document.querySelector('.input');
+const buttons = document.querySelectorAll('.button');
 
-        else{
-        console.log(e.target);
-        string =  string + e.target.innerHTML;
-        document.querySelector('input').value=string;
-        }
-     })
-})
+let string = "";
 
+buttons.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    const value = e.target.innerHTML;
 
+    if (value === '=') {
+      try {
+        string = eval(string);
+        input.value = string;
+      } catch (err) {
+        input.value = "Error";
+        string = "";
+      }
+    } else if (value === 'AC') {
+      string = "";
+      input.value = string;
+    } else {
+      string += value;
+      input.value = string;
+    }
+  });
+});
